@@ -35,10 +35,9 @@
         .sidebar {
             width: 260px; background: var(--sidebar-bg); color: var(--sidebar-text);
             height: 100vh; position: fixed; top: 0; left: 0;
-            padding: 25px 15px; box-shadow: border-box;
+            padding: 25px 15px; box-sizing: border-box;
             display: flex; flex-direction: column; gap: 15px;
             box-shadow: 4px 0 15px rgba(0,0,0,0.05);
-            box-sizing: border-box;
         }
 
         .sidebar h3 { margin-top: 0; text-align: center; font-size: 18px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 15px; color: #fff; }
@@ -146,7 +145,8 @@
 </div>
 
 <script>
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbysdpddcGAycf1b-KnqbG1ZC40mu4EC2jvDIp1J5Axo3xTYkY1YPRbciTSQuoYUPj9w/exec';
+    // আপনার নতুন এবং সচল গুগল অ্যাপস স্ক্রিপ্ট ওয়েব ইউআরএল
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzQWSTqdwlPUHMxOWvnwORTBX8uJa80CCKJT6LKKLOyMoN1K3ynT9A1XWdWCd6AZHXs/exec';
 
     function logout() {
         if(confirm("Are you sure you want to log out?")) {
@@ -276,10 +276,11 @@
         submitBtn.disabled = true;
         submitBtn.innerText = "Saving to Google Sheet...";
 
-        // CORS ইস্যু এবং সাবমিশন এরর দূর করার জন্য 'mode: 'no-cors'' ব্যবহার করা হয়েছে
+        // ব্রাউজারের CORS সিকিউরিটি ব্লক এড়ানোর জন্য 'mode: no-cors' কনফিগার করা হলো
         fetch(scriptURL, {
             method: 'POST',
             mode: 'no-cors', 
+            cache: 'no-cache',
             body: JSON.stringify(googleSheetData),
             headers: { 'Content-Type': 'application/json' }
         })
@@ -289,10 +290,10 @@
             if(editIndex !== null) {
                 currentData[editIndex] = entryData;
                 localStorage.removeItem('editIndex');
-                alert("Data updated successfully!");
+                alert("Data updated successfully in Google Sheet!");
             } else {
                 currentData.push(entryData);
-                alert("New data saved successfully!");
+                alert("New data saved successfully to Google Sheet!");
             }
 
             localStorage.setItem('garmentsData', JSON.stringify(currentData));
@@ -300,7 +301,7 @@
         })
         .catch(error => {
             console.error('Error!', error.message);
-            alert("Failed to save data. Please check network connection.");
+            alert("Failed to save data. Please check your network connection.");
         })
         .finally(() => {
             submitBtn.disabled = false;
