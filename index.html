@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <script>
-    // পেজ পুরোপুরি রেডি হওয়ার পর সিকিউরিটি চেক রান হবে
-    window.addEventListener('DOMContentLoaded', () => {
-        if (sessionStorage.getItem('isUnlocked') !== 'true') {
-            alert("Access Denied! Please login first."); // ইউজারকে অ্যালার্ট দেবে
-            window.location.replace("login.html"); // রিডাইরেক্ট হিস্ট্রি ক্লিন রাখবে
+    <script>
+        // সিকিউরিটি গার্ড: লগইন করা না থাকলে সরাসরি login.html পেজে পাঠিয়ে দেবে
+        if(sessionStorage.getItem('isUnlocked') !== 'true') {
+            window.location.href = "login.html";
         }
-    });
-</script>
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Garments Data Entry</title>
@@ -102,30 +99,31 @@
         <h2>Garments Smart Data Portal</h2>
         <p id="formSubTitle">📝 Cutting Department Data Entry Form</p>
         
+        <!-- প্রতিটি ইনপুটে name অ্যাট্রিবিউট যোগ করা হয়েছে যাতে গুগল শিট সহজে ডাটা রিড করতে পারে -->
         <form id="dataForm" class="form-grid">
-            <div class="form-group"><label>Sr. No. / Serial No.</label><input type="text" id="srNo" placeholder="--Select Serial No.--" required></div>
-            <div class="form-group"><label>Buyer Name</label><input type="text" id="buyerName" placeholder="--Select Buyer Name--" required></div>
-            <div class="form-group"><label>Style</label><input type="text" id="style" placeholder="--Select Style--" required></div>
-            <div class="form-group"><label>Color</label><input type="text" id="color" placeholder="--Select Color--" required></div>
+            <div class="form-group"><label>Sr. No. / Serial No.</label><input type="text" id="srNo" name="srNo" placeholder="--Select Serial No.--" required autocomplete="off"></div>
+            <div class="form-group"><label>Buyer Name</label><input type="text" id="buyerName" name="buyerName" placeholder="--Select Buyer Name--" required autocomplete="off"></div>
+            <div class="form-group"><label>Style</label><input type="text" id="style" name="style" placeholder="--Select Style--" required autocomplete="off"></div>
+            <div class="form-group"><label>Color</label><input type="text" id="color" name="color" placeholder="--Select Color--" required autocomplete="off"></div>
 
-            <div class="form-group"><label>Date</label><input type="date" id="date" required></div>
-            <div class="form-group"><label>Cutting No.</label><input type="text" id="cuttingNo" placeholder="--Select Cutting No.--" required></div>
-            <div class="form-group"><label>PO No.</label><input type="text" id="poNo" placeholder="--Select PO No.--" required></div>
-            <div class="form-group"><label>Batch No.</label><input type="text" id="batchNo" placeholder="--Select Batch No.--" required></div>
+            <div class="form-group"><label>Date</label><input type="date" id="date" name="date" required></div>
+            <div class="form-group"><label>Cutting No.</label><input type="text" id="cuttingNo" name="cuttingNo" placeholder="--Select Cutting No.--" required autocomplete="off"></div>
+            <div class="form-group"><label>PO No.</label><input type="text" id="poNo" name="poNo" placeholder="--Select PO No.--" required autocomplete="off"></div>
+            <div class="form-group"><label>Batch No.</label><input type="text" id="batchNo" name="batchNo" placeholder="--Select Batch No.--" required autocomplete="off"></div>
 
-            <div class="form-group"><label>Shade</label><input type="text" id="shade" placeholder="--Select Shade--"></div>
-            <div class="form-group"><label>Total Lay</label><input type="number" id="totalLay" min="0" placeholder="--Select Total Lay--"></div>
-            <div class="form-group"><label>Table No.</label><input type="text" id="tableNo" placeholder="--Select Table No.--"></div>
-            <div class="form-group"><label>M/L (Marker Length)</label><input type="text" id="ml" placeholder="--Select Marker Length--"></div>
+            <div class="form-group"><label>Shade</label><input type="text" id="shade" name="shade" placeholder="--Select Shade--" autocomplete="off"></div>
+            <div class="form-group"><label>Total Lay</label><input type="number" id="totalLay" name="totalLay" min="0" placeholder="--Select Total Lay--" autocomplete="off"></div>
+            <div class="form-group"><label>Table No.</label><input type="text" id="tableNo" name="tableNo" placeholder="--Select Table No.--" autocomplete="off"></div>
+            <div class="form-group"><label>M/L (Marker Length)</label><input type="text" id="ml" name="ml" placeholder="--Select Marker Length--" autocomplete="off"></div>
 
-            <div class="form-group"><label>M/W (Marker Width)</label><input type="text" id="mw" placeholder="--Select Marker Width--"></div>
-            <div class="form-group"><label>M/C (Marker Consumption)</label><input type="text" id="mc" placeholder="--Select Marker Consumption--"></div>
-            <div class="form-group"><label>Lay Wet/C</label><input type="text" id="layWetc" placeholder="--Select Lay Wet/C--"></div>
-            <div class="form-group"><label>M/EFC</label><input type="text" id="mefc" placeholder="--Select M/EFC--"></div>
+            <div class="form-group"><label>M/W (Marker Width)</label><input type="text" id="mw" name="mw" placeholder="--Select Marker Width--" autocomplete="off"></div>
+            <div class="form-group"><label>M/C (Marker Consumption)</label><input type="text" id="mc" name="mc" placeholder="--Select Marker Consumption--" autocomplete="off"></div>
+            <div class="form-group"><label>Lay Wet/C</label><input type="text" id="layWetc" name="layWetc" placeholder="--Select Lay Wet/C--" autocomplete="off"></div>
+            <div class="form-group"><label>M/EFC</label><input type="text" id="mefc" name="mefc" placeholder="--Select M/EFC--" autocomplete="off"></div>
 
             <div class="form-group" style="grid-column: span 4;">
                 <label>Size Category</label>
-                <select id="sizeCategory" onchange="updateSizeMatrix()">
+                <select id="sizeCategory" name="category" onchange="updateSizeMatrix()">
                     <option value="" disabled selected>--Select Category--</option>
                     <option value="regular">Regular Size (XXS-4XL)</option>
                     <option value="junior">Junior Size (128-176)</option>
@@ -148,10 +146,13 @@
 </div>
 
 <script>
+    // আপনার জেনারেট করা গুগল অ্যাপস স্ক্রিপ্ট ওয়েব ইউআরএল
+    const scriptURL = 'https://script.google.com/macros/s/AKfycby9XGwesFCwb0HvHe2nFnJezljw8pchJAwb1RkY5Qh42fEzQlz0xdYg2f2pmAmNluND/exec';
+
     function logout() {
         if(confirm("Are you sure you want to log out?")) {
             sessionStorage.removeItem('isUnlocked');
-            window.location.href = "login.html"; // লগআউট করলে লগইন পেজে পাঠিয়ে দেবে
+            window.location.href = "login.html";
         }
     }
 
@@ -226,17 +227,32 @@
     }
 
     function saveAndGo() {
+        const formElement = document.getElementById('dataForm');
+        
+        // রিকোয়ার্ড (Required) ফিল্ডগুলো ফাঁকা থাকলে সাবমিট হবে না
+        if (!formElement.checkValidity()) {
+            formElement.reportValidity();
+            return;
+        }
+
         const category = document.getElementById('sizeCategory').value;
         if(!category) { alert("Please select a Category!"); return; }
 
         let ratioValues = [], qtyValues = [], totalRatio = 0, totalQty = 0;
+        let sizeDetails = {}; // গুগল শিটে আলাদা সাইজ দেখানোর জন্য অবজেক্ট
+
         sizeGroups[category].forEach((sz, i) => {
             const r = parseInt(document.getElementById(`ratio_${i}`).value) || 0;
             const q = parseInt(document.getElementById(`qty_${i}`).value) || 0;
             ratioValues.push(r); qtyValues.push(q);
             totalRatio += r; totalQty += q;
+            
+            // প্রতিটি সাইজের রেশিও এবং কোয়ান্টিটি তৈরি
+            sizeDetails[`ratio_${sz}`] = r;
+            sizeDetails[`qty_${sz}`] = q;
         });
 
+        // মূল এন্ট্রি অবজেক্ট (ভিউ পেজের জন্য লোকাল স্টোরেজেও থাকবে)
         const entryData = {
             srNo: document.getElementById('srNo').value,
             buyerName: document.getElementById('buyerName').value,
@@ -257,19 +273,45 @@
             category, sizesArray: sizeGroups[category], rValues: ratioValues, qValues: qtyValues, totalRatio, totalQty
         };
 
-        let currentData = JSON.parse(localStorage.getItem('garmentsData')) || [];
+        // গুগল শিটে পাঠানোর জন্য সমস্ত ডেটা একসাথে করা
+        const googleSheetData = { ...entryData, ...sizeDetails };
 
-        if(editIndex !== null) {
-            currentData[editIndex] = entryData;
-            localStorage.removeItem('editIndex');
-            alert("Data updated successfully!");
-        } else {
-            currentData.push(entryData);
-            alert("New data saved successfully!");
-        }
+        // বাটন লক করা যাতে ডাবল সাবমিট না হয়
+        const submitBtn = document.getElementById('submitBtn');
+        const originalBtnText = submitBtn.innerText;
+        submitBtn.disabled = true;
+        submitBtn.innerText = "Saving to Google Sheet...";
 
-        localStorage.setItem('garmentsData', JSON.stringify(currentData));
-        window.location.href = "view_data.html";
+        // গুগল শিটে ডেটা আপলোড করা
+        fetch(scriptURL, {
+            method: 'POST',
+            body: JSON.stringify(googleSheetData),
+            headers: { 'Content-Type': 'application/json' }
+        })
+        .then(response => {
+            // গুগল শিটে সেভ হওয়ার পর আগের নিয়মে লোকাল স্টোরেজে সেভ / আপডেট হবে
+            let currentData = JSON.parse(localStorage.getItem('garmentsData')) || [];
+
+            if(editIndex !== null) {
+                currentData[editIndex] = entryData;
+                localStorage.removeItem('editIndex');
+                alert("Data updated successfully in Google Sheet & Local Storage!");
+            } else {
+                currentData.push(entryData);
+                alert("New data saved successfully to Google Sheet & Local Storage!");
+            }
+
+            localStorage.setItem('garmentsData', JSON.stringify(currentData));
+            window.location.href = "view_data.html";
+        })
+        .catch(error => {
+            console.error('Error!', error.message);
+            alert("Failed to save data to Google Sheet. Please check connection.");
+        })
+        .finally(() => {
+            submitBtn.disabled = false;
+            submitBtn.innerText = originalBtnText;
+        });
     }
 </script>
 </body>
