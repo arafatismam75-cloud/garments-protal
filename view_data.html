@@ -49,305 +49,52 @@
             border: 1px solid rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(10px);
         }
-        .login-logo {
-            font-size: 50px;
-            margin-bottom: 10px;
-        }
-        .login-card h2 {
-            margin: 0 0 5px 0;
-            color: #0f172a;
-            font-size: 24px;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-        }
-        .login-card p {
-            color: #64748b;
-            font-size: 14px;
-            margin-bottom: 25px;
-        }
-        .input-group {
-            margin-bottom: 15px;
-            text-align: left;
-        }
-        .input-group label {
-            display: block;
-            font-size: 12px;
-            font-weight: bold;
-            color: #475569;
-            margin-bottom: 5px;
-            text-transform: uppercase;
-        }
-        .login-input {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            font-size: 15px;
-            box-sizing: border-box;
-            background-color: #f8fafc;
-            transition: 0.3s;
-        }
-        .login-input:focus {
-            border-color: #0284c7;
-            background-color: #fff;
-            box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
-            outline: none;
-        }
-        .btn-login {
-            background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
-            color: white;
-            border: none;
-            padding: 14px;
-            width: 100%;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 16px;
-            margin-top: 10px;
-            box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
-            transition: 0.3s;
-        }
-        .btn-login:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 6px 15px rgba(2, 132, 199, 0.4);
-        }
+        .login-logo { font-size: 50px; margin-bottom: 10px; }
+        .login-card h2 { margin: 0 0 5px 0; color: #0f172a; font-size: 24px; font-weight: 800; letter-spacing: -0.5px; }
+        .login-card p { color: #64748b; font-size: 14px; margin-bottom: 25px; }
+        .input-group { margin-bottom: 15px; text-align: left; }
+        .input-group label { display: block; font-size: 12px; font-weight: bold; color: #475569; margin-bottom: 5px; text-transform: uppercase; }
+        .login-input { width: 100%; padding: 12px 15px; border: 1px solid var(--border-color); border-radius: 8px; font-size: 15px; box-sizing: border-box; background-color: #f8fafc; transition: 0.3s; }
+        .login-input:focus { border-color: #0284c7; background-color: #fff; box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15); outline: none; }
+        .btn-login { background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%); color: white; border: none; padding: 14px; width: 100%; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 16px; margin-top: 10px; box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3); transition: 0.3s; }
+        .btn-login:hover { transform: translateY(-1px); box-shadow: 0 6px 15px rgba(2, 132, 199, 0.4); }
 
         /* Dashboard & Sidebar */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: var(--bg-color);
-            margin: 0;
-            padding: 0;
-            display: flex;
-            color: var(--text-color);
-        }
-
-        .sidebar {
-            width: 260px;
-            background: var(--sidebar-bg);
-            color: var(--sidebar-text);
-            height: 100vh;
-            position: fixed;
-            top: 0; left: 0;
-            padding: 25px 15px;
-            box-sizing: border-box;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            box-shadow: 4px 0 15px rgba(0,0,0,0.05);
-        }
-
-        .sidebar h3 {
-            margin-top: 0;
-            text-align: center;
-            font-size: 18px;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            padding-bottom: 15px;
-            color: #fff;
-        }
-
-        .sidebar-link {
-            color: #94a3b8;
-            padding: 12px 15px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: all 0.2s;
-        }
-
-        .sidebar-link:hover, .sidebar-link.active {
-            background: rgba(255,255,255,0.05);
-            color: #fff;
-        }
-        .sidebar-link.active {
-            border-left: 4px solid var(--accent-color);
-            background: rgba(56, 189, 248, 0.1);
-        }
-
-        .main-content {
-            margin-left: 260px;
-            flex: 1;
-            padding: 20px 30px 40px 30px;
-            box-sizing: border-box;
-        }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--bg-color); margin: 0; padding: 0; display: flex; color: var(--text-color); }
+        .sidebar { width: 260px; background: var(--sidebar-bg); color: var(--sidebar-text); height: 100vh; position: fixed; top: 0; left: 0; padding: 25px 15px; box-sizing: border-box; display: flex; flex-direction: column; gap: 15px; box-shadow: 4px 0 15px rgba(0,0,0,0.05); }
+        .sidebar h3 { margin-top: 0; text-align: center; font-size: 18px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 15px; color: #fff; }
+        .sidebar-link { color: #94a3b8; padding: 12px 15px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 14px; display: flex; align-items: center; gap: 10px; transition: all 0.2s; }
+        .sidebar-link:hover, .sidebar-link.active { background: rgba(255,255,255,0.05); color: #fff; }
+        .sidebar-link.active { border-left: 4px solid var(--accent-color); background: rgba(56, 189, 248, 0.1); }
+        .main-content { margin-left: 260px; flex: 1; padding: 20px 30px 40px 30px; box-sizing: border-box; }
 
         /* Top Header Profile */
-        .top-header {
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            padding: 10px 0;
-            margin-bottom: 25px;
-            border-bottom: 1px solid #cbd5e1;
-        }
-
-        .user-profile {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 6px 14px;
-            background: #ffffff;
-            border-radius: 30px;
-            border: 1px solid var(--border-color);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-            cursor: pointer;
-            transition: 0.2s;
-        }
-
-        .user-profile:hover {
-            background: #f8fafc;
-            border-color: #cbd5e1;
-        }
-
-        .profile-avatar {
-            width: 36px;
-            height: 36px;
-            background: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%);
-            color: white;
-            font-weight: bold;
-            font-size: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            box-shadow: 0 2px 6px rgba(2, 132, 199, 0.2);
-        }
-
-        .profile-info {
-            display: flex;
-            flex-direction: column;
-            text-align: left;
-        }
-
-        .profile-name {
-            color: #0f172a;
-            font-weight: 700;
-            font-size: 13px;
-            line-height: 1.2;
-        }
-
-        .profile-role {
-            color: #64748b;
-            font-size: 10px;
-            margin-top: 1px;
-        }
+        .top-header { display: flex; justify-content: flex-end; align-items: center; padding: 10px 0; margin-bottom: 25px; border-bottom: 1px solid #cbd5e1; }
+        .user-profile { display: flex; align-items: center; gap: 12px; padding: 6px 14px; background: #ffffff; border-radius: 30px; border: 1px solid var(--border-color); box-shadow: 0 2px 8px rgba(0,0,0,0.04); cursor: pointer; transition: 0.2s; }
+        .user-profile:hover { background: #f8fafc; border-color: #cbd5e1; }
+        .profile-avatar { width: 36px; height: 36px; background: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%); color: white; font-weight: bold; font-size: 16px; display: flex; align-items: center; justify-content: center; border-radius: 50%; box-shadow: 0 2px 6px rgba(2, 132, 199, 0.2); }
+        .profile-info { display: flex; flex-direction: column; text-align: left; }
+        .profile-name { color: #0f172a; font-weight: 700; font-size: 13px; line-height: 1.2; }
+        .profile-role { color: #64748b; font-size: 10px; margin-top: 1px; }
 
         /* Table Area */
-        .container {
-            max-width: 1450px;
-            margin: auto;
-            background: var(--card-bg);
-            padding: 35px;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
-            border: 1px solid #e2e8f0;
-        }
-
-        h2 {
-            font-size: 26px;
-            font-weight: 800;
-            margin-bottom: 5px;
-            color: #0f172a;
-        }
+        .container { max-width: 1450px; margin: auto; background: var(--card-bg); padding: 35px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02); border: 1px solid #e2e8f0; }
+        h2 { font-size: 26px; font-weight: 800; margin-bottom: 5px; color: #0f172a; }
         .container p { margin-top: 0; margin-bottom: 30px; color: #64748b;}
-
-        .control-panel {
-            padding: 15px;
-            background: var(--search-bg);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 15px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-            border: 1px solid #e2e8f0;
-        }
-
-        .search-box {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            flex: 1;
-            min-width: 250px;
-        }
-
-        .search-input {
-            width: 100%;
-            padding: 10px;
-            font-size: 14px;
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-        }
-
-        .backup-buttons {
-            display: flex;
-            gap: 10px;
-        }
-
-        .btn-backup {
-            padding: 10px 15px;
-            font-size: 13px;
-            font-weight: bold;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            color: white;
-            transition: 0.3s;
-        }
-
-        .btn-export { background-color: #059669; }
-        .btn-export:hover { background-color: #047857; }
-        .btn-import { background-color: #2563eb; }
-        .btn-import:hover { background-color: #1d4ed8; }
+        
+        .control-panel { padding: 15px; background: var(--search-bg); border-radius: 8px; display: flex; align-items: center; justify-content: space-between; gap: 15px; margin-bottom: 20px; flex-wrap: wrap; border: 1px solid #e2e8f0; }
+        .search-box { display: flex; align-items: center; gap: 10px; flex: 1; min-width: 250px; }
+        .search-input { width: 100%; padding: 10px; font-size: 14px; border: 1px solid var(--border-color); border-radius: 6px; }
+        
+        .loading-msg { text-align: center; padding: 30px; font-weight: bold; color: #0284c7; font-size: 16px; }
 
         table.result-table { width: 100%; border-collapse: collapse; }
-        table.result-table th {
-            background: #1e293b;
-            color: white;
-            padding: 10px 8px;
-            font-size: 12px;
-            border: 1px solid var(--border-color);
-            white-space: nowrap;
-        }
-
+        table.result-table th { background: #1e293b; color: white; padding: 10px 8px; font-size: 12px; border: 1px solid var(--border-color); white-space: nowrap; }
         table.result-table td { border: 1px solid var(--border-color); padding: 8px; text-align: center; font-size: 12px; }
 
         .bg-ratio { background-color: var(--ratio-bg); }
         .bg-qty { background-color: var(--qty-bg); }
         .total-cell { font-weight: bold; color: #059669; background-color: #d1fae5 !important; }
-
-        .action-container { display: flex; flex-direction: column; gap: 4px; align-items: center; justify-content: center; }
-
-        .btn-edit {
-            background-color: #e2e8f0;
-            color: #0f172a;
-            border: 1px solid #cbd5e1;
-            padding: 4px 10px;
-            font-size: 11px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: bold;
-            width: 55px;
-        }
-        .btn-edit:hover { background-color: #cbd5e1; }
-
-        .btn-delete { 
-            background-color: #fee2e2; 
-            color: #ef4444; 
-            border: 1px solid #fca5a5; 
-            padding: 4px 10px; 
-            font-size: 11px; 
-            border-radius: 4px; 
-            cursor: pointer; 
-            font-weight: bold;
-            width: 55px;
-        }
-        .btn-delete:hover { background-color: #fca5a5; }
     </style>
 </head>
 <body>
@@ -355,7 +102,7 @@
 <!-- Login Gate Screen -->
 <div id="lockScreen">
     <div class="login-card">
-        <div class="login-logo"></div>
+        <div class="login-logo">🏭</div>
         <h2>Garments Enterprise Portal</h2>
         <p>Please enter your login username and password</p>
         
@@ -378,14 +125,12 @@
     <a href="index.html" class="sidebar-link">Data Entry Form</a>
     <a href="view_data.html" class="sidebar-link active">View Entered Data</a>
     
-    <!-- Logout Button -->
     <a href="#" class="sidebar-link" onclick="logout()" style="margin-top: auto; color: #f87171; border-left: none; background: rgba(248, 113, 113, 0.05);">
         🚪 Log Out
     </a>
 </div>
 
 <div class="main-content">
-    <!-- Top Header Profile -->
     <div class="top-header">
         <div class="user-profile" title="Arafat's Profile">
             <div class="profile-avatar">A</div>
@@ -398,22 +143,18 @@
 
     <div class="container">
         <h2>Garments Smart Data Portal</h2>
-        <p> Cutting Department Data Entry List</p>
+        <p>🔄 সরাসরি গুগল শিট থেকে রিয়েল-টাইম ডাটা দেখানো হচ্ছে (যেকোনো ইউজারের এন্ট্রি এখানে দেখা যাবে)।</p>
         
         <div class="control-panel">
             <div class="search-box">
                 <label>🔍 <strong>Style:</strong></label>
                 <input type="text" id="searchStyle" class="search-input" placeholder="Search Style..." oninput="filterData()">
             </div>
-            
-            <div class="backup-buttons">
-                <button class="btn-backup btn-export" onclick="exportToJSON()">📥 Save Backup File</button>
-                <button class="btn-backup btn-import" onclick="document.getElementById('fileInput').click()">📤 Load Backup File</button>
-                <input type="file" id="fileInput" style="display: none;" accept=".json" onchange="importFromJSON(event)">
-            </div>
         </div>
 
-        <div style="overflow-x: auto;">
+        <div id="loading" class="loading-msg">⏳ গুগল শিট থেকে লাইভ ডাটা লোড হচ্ছে, দয়া করে অপেক্ষা করুন...</div>
+
+        <div style="overflow-x: auto; display: none;" id="tableContainer">
             <table id="dataTable" class="result-table">
                 <thead id="resultHead"></thead>
                 <tbody id="tableBody"></tbody>
@@ -426,6 +167,11 @@
     const correctUser = "arafat";
     const correctPassword = "Arafat123";
 
+    // আপনার নতুন এবং সচল গুগল অ্যাপস স্ক্রিপ্ট ওয়েব ইউআরএল
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwiwAsSeTuli7ZhBc0hSsoy9o3Z6yMTeclF1wdmbytvE18QVOomsJySsoyMKvnLql8a/exec';
+
+    let globalSheetData = []; // গুগল শিট থেকে আসা ডাটা সেভ রাখার গ্লোবাল ভেরিয়েবল
+
     function checkPassword() {
         const userInput = document.getElementById('userInput').value.trim().toLowerCase();
         const passInput = document.getElementById('passInput').value;
@@ -433,6 +179,7 @@
         if(userInput === correctUser && passInput === correctPassword) {
             sessionStorage.setItem('isUnlocked', 'true');
             document.getElementById('lockScreen').style.display = 'none';
+            fetchLiveGoogleSheetData();
         } else {
             alert("Invalid username or password! Please try again.");
         }
@@ -451,26 +198,40 @@
         ps: ['2XL', '3XL', '4XL', '5XL', '6XL', '7XL', '8XL']
     };
 
-    let garmentsData = JSON.parse(localStorage.getItem('garmentsData')) || [];
-    localStorage.removeItem('editIndex'); 
-
     window.onload = function() {
         if(sessionStorage.getItem('isUnlocked') === 'true') {
             document.getElementById('lockScreen').style.display = 'none';
+            fetchLiveGoogleSheetData();
         }
-        renderTable(garmentsData);
+    }
+
+    // সরাসরি গুগল শিট থেকে ডাটা কল করার ফাংশন
+    function fetchLiveGoogleSheetData() {
+        fetch(scriptURL)
+        .then(response => response.json())
+        .then(data => {
+            globalSheetData = data;
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('tableContainer').style.display = 'block';
+            renderTable(globalSheetData);
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+            document.getElementById('loading').innerText = "❌ ডাটা লোড করতে সমস্যা হয়েছে! দয়া করে আপনার ইন্টারনেট কানেকশন বা অ্যাপস স্ক্রিপ্ট চেক করুন।";
+        });
     }
 
     function renderTable(dataList) {
         const resultHead = document.getElementById('resultHead');
         const tableBody = document.getElementById('tableBody');
         
-        if(dataList.length === 0) {
+        if(!dataList || dataList.length === 0) {
             resultHead.innerHTML = `<tr><th>Data Status</th></tr>`;
-            tableBody.innerHTML = `<tr><td>No data found. Please enter data first or load a backup file.</td></tr>`;
+            tableBody.innerHTML = `<tr><td>No data found in Google Sheet.</td></tr>`;
             return;
         }
 
+        // টেবিলে সবোর্চ্চ সাইজ কলাম দেখাতে 'regular' গ্রুপের ৯টি সাইজ ফিক্সড হেডারে রাখা হয়েছে
         const maxSizes = sizeGroups['regular'];
         let sizeHeaderCols = "";
         maxSizes.forEach(sz => { sizeHeaderCols += `<th>${sz}</th>`; });
@@ -483,7 +244,7 @@
                 <th rowspan="2">M/W</th><th rowspan="2">M/C</th><th rowspan="2">Lay Wet/C</th><th rowspan="2">M/EFC</th>
                 <th rowspan="2">Category</th><th rowspan="2">Type</th>
                 <th colspan="${maxSizes.length}">Size Breakup</th>
-                <th rowspan="2">Total Pcs</th><th rowspan="2">Action</th>
+                <th rowspan="2">Total Pcs</th>
             </tr>
             <tr>
                 ${sizeHeaderCols}
@@ -492,18 +253,21 @@
 
         tableBody.innerHTML = "";
         
-        dataList.forEach((row, actualIndex) => {
+        dataList.forEach((row) => {
             let rCells = "", qCells = "";
-            const currentCategory = row.category || 'regular';
-            const currentSizes = sizeGroups[currentCategory];
+            
+            // গুগল শিট থেকে তারিখ সুন্দর করার জন্য
+            let formattedDate = row.date || row['Date'] || '-';
+            if(formattedDate.includes('T')) {
+                formattedDate = formattedDate.split('T')[0];
+            }
 
-            maxSizes.forEach((sz, i) => {
-                let rVal = 0, qVal = 0;
-                const sizeIndex = row.sizesArray.indexOf(sz);
-                if(sizeIndex !== -1) {
-                    rVal = row.rValues[sizeIndex];
-                    qVal = row.qValues[sizeIndex];
-                }
+            // ম্যাপ অনুযায়ী রেশিও এবং কোয়ান্টিটি চেক করা
+            maxSizes.forEach(sz => {
+                // গুগল শিট থেকে ডাইনামিকলি কলামের ডাটা রিড করা (যেমন: ratio_M, qty_M)
+                let rVal = row[`ratio_${sz}`] !== undefined ? row[`ratio_${sz}`] : 0;
+                let qVal = row[`qty_${sz}`] !== undefined ? row[`qty_${sz}`] : 0;
+                
                 rCells += `<td>${rVal}</td>`;
                 qCells += `<td>${qVal}</td>`;
             });
@@ -511,32 +275,26 @@
             const ratioRow = document.createElement('tr');
             ratioRow.className = 'bg-ratio';
             ratioRow.innerHTML = `
-                <td rowspan="2" style="vertical-align:middle; font-weight:bold;">${row.srNo}</td>
-                <td rowspan="2" style="vertical-align:middle;">${row.buyerName}</td>
-                <td rowspan="2" style="vertical-align:middle;">${row.style}</td>
-                <td rowspan="2" style="vertical-align:middle;">${row.color}</td>
-                <td rowspan="2" style="vertical-align:middle;">${row.date}</td>
-                <td rowspan="2" style="vertical-align:middle;">${row.cuttingNo}</td>
-                <td rowspan="2" style="vertical-align:middle;">${row.poNo}</td>
-                <td rowspan="2" style="vertical-align:middle;">${row.batchNo}</td>
-                <td rowspan="2" style="vertical-align:middle;">${row.shade || '-'}</td>
-                <td rowspan="2" style="vertical-align:middle;">${row.totalLay || '-'}</td>
-                <td rowspan="2" style="vertical-align:middle;">${row.tableNo || '-'}</td>
-                <td rowspan="2" style="vertical-align:middle;">${row.ml || '-'}</td>
-                <td rowspan="2" style="vertical-align:middle;">${row.mw || '-'}</td>
-                <td rowspan="2" style="vertical-align:middle;">${row.mc || '-'}</td>
-                <td rowspan="2" style="vertical-align:middle;">${row.layWetc || '-'}</td>
-                <td rowspan="2" style="vertical-align:middle;">${row.mefc || '-'}</td>
-                <td rowspan="2" style="vertical-align:middle; text-transform:uppercase; font-weight:700;">${row.category}</td>
+                <td rowspan="2" style="vertical-align:middle; font-weight:bold;">${row.srNo || row['Sr. No.'] || '-'}</td>
+                <td rowspan="2" style="vertical-align:middle;">${row.buyerName || row['Buyer Name'] || '-'}</td>
+                <td rowspan="2" style="vertical-align:middle;">${row.style || row['Style'] || '-'}</td>
+                <td rowspan="2" style="vertical-align:middle;">${row.color || row['Color'] || '-'}</td>
+                <td rowspan="2" style="vertical-align:middle;">${formattedDate}</td>
+                <td rowspan="2" style="vertical-align:middle;">${row.cuttingNo || row['Cutting No.'] || '-'}</td>
+                <td rowspan="2" style="vertical-align:middle;">${row.poNo || row['PO No.'] || '-'}</td>
+                <td rowspan="2" style="vertical-align:middle;">${row.batchNo || row['Batch No.'] || '-'}</td>
+                <td rowspan="2" style="vertical-align:middle;">${row.shade || row['Shade'] || '-'}</td>
+                <td rowspan="2" style="vertical-align:middle;">${row.totalLay || row['Total Lay'] || '-'}</td>
+                <td rowspan="2" style="vertical-align:middle;">${row.tableNo || row['Table No.'] || '-'}</td>
+                <td rowspan="2" style="vertical-align:middle;">${row.ml || row['M/L'] || '-'}</td>
+                <td rowspan="2" style="vertical-align:middle;">${row.mw || row['M/W'] || '-'}</td>
+                <td rowspan="2" style="vertical-align:middle;">${row.mc || row['M/C'] || '-'}</td>
+                <td rowspan="2" style="vertical-align:middle;">${row.layWetc || row['Lay Wet/C'] || '-'}</td>
+                <td rowspan="2" style="vertical-align:middle;">${row.mefc || row['M/EFC'] || '-'}</td>
+                <td rowspan="2" style="vertical-align:middle; text-transform:uppercase; font-weight:700;">${row.category || row['Category'] || '-'}</td>
                 <td style="font-weight:bold; font-size:11px;">Ratio</td>
                 ${rCells}
-                <td style="font-weight:bold; background:rgba(0,198,255,0.1);">${row.totalRatio}</td>
-                <td rowspan="2" style="vertical-align:middle;">
-                    <div class="action-container">
-                        <button class="btn-edit" onclick="editData(${actualIndex})">Edit</button>
-                        <button class="btn-delete" onclick="deleteData(${actualIndex})">Delete</button>
-                    </div>
-                </td>
+                <td style="font-weight:bold; background:rgba(0,198,255,0.1);">${row.totalRatio || row['Total Ratio'] || 0}</td>
             `;
 
             const qtyRow = document.createElement('tr');
@@ -544,7 +302,7 @@
             qtyRow.innerHTML = `
                 <td style="font-weight:bold; font-size:11px;">Qty (Pcs)</td>
                 ${qCells}
-                <td class="total-cell">${row.totalQty}</td>
+                <td class="total-cell">${row.totalQty || row['Total Qty'] || 0}</td>
             `;
             
             tableBody.appendChild(ratioRow);
@@ -552,62 +310,13 @@
         });
     }
 
-    function editData(index) {
-        localStorage.setItem('editIndex', index); 
-        window.location.href = "index.html"; 
-    }
-
-    function deleteData(index) {
-        if(confirm("Are you sure you want to delete this data?")) {
-            garmentsData.splice(index, 1);
-            localStorage.setItem('garmentsData', JSON.stringify(garmentsData));
-            renderTable(garmentsData);
-        }
-    }
-
     function filterData() {
         const txt = document.getElementById('searchStyle').value.toLowerCase().trim();
-        const filtered = garmentsData.filter(item => item.style.toLowerCase().includes(txt));
+        const filtered = globalSheetData.filter(item => {
+            const styleName = item.style || item['Style'] || '';
+            return styleName.toLowerCase().includes(txt);
+        });
         renderTable(filtered);
-    }
-
-    function exportToJSON() {
-        if(garmentsData.length === 0) {
-            alert("No data available to download!");
-            return;
-        }
-        const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(garmentsData, null, 2));
-        const downloadAnchor = document.createElement('a');
-        downloadAnchor.setAttribute("href", dataStr);
-        downloadAnchor.setAttribute("download", "Garments_Data_Backup.json");
-        document.body.appendChild(downloadAnchor);
-        downloadAnchor.click();
-        downloadAnchor.remove();
-    }
-
-    function importFromJSON(event) {
-        const file = event.target.files[0];
-        if (!file) return;
-
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            try {
-                const importedData = JSON.parse(e.target.result);
-                if (Array.isArray(importedData)) {
-                    if(confirm("Uploading this file will replace all existing data. Are you sure?")) {
-                        garmentsData = importedData;
-                        localStorage.setItem('garmentsData', JSON.stringify(garmentsData));
-                        renderTable(garmentsData);
-                        alert("Success! Your backup data has been loaded successfully.");
-                    }
-                } else {
-                    alert("Invalid file! Please upload a valid backup file.");
-                }
-            } catch (err) {
-                alert("Failed to read file. This is not a valid backup file.");
-            }
-        };
-        reader.readAsText(file);
     }
 </script>
 </body>
