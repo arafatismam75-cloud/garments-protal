@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <script>
-        // সিকিউরিটি গার্ড: লগইন করা না থাকলে সরাসরি login.html পেজে পাঠিয়ে দেবে
+        // সিকিউরিটি গার্ড: লগইন করা না থাকলে সরাসরি login.html পেজে পাঠিয়ে দেবে
         if(sessionStorage.getItem('isUnlocked') !== 'true') {
             window.location.href = "login.html";
         }
@@ -35,9 +35,10 @@
         .sidebar {
             width: 260px; background: var(--sidebar-bg); color: var(--sidebar-text);
             height: 100vh; position: fixed; top: 0; left: 0;
-            padding: 25px 15px; box-sizing: border-box;
+            padding: 25px 15px; box-shadow: border-box;
             display: flex; flex-direction: column; gap: 15px;
             box-shadow: 4px 0 15px rgba(0,0,0,0.05);
+            box-sizing: border-box;
         }
 
         .sidebar h3 { margin-top: 0; text-align: center; font-size: 18px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 15px; color: #fff; }
@@ -99,7 +100,6 @@
         <h2>Garments Smart Data Portal</h2>
         <p id="formSubTitle">📝 Cutting Department Data Entry Form</p>
         
-        <!-- প্রতিটি ইনপুটে name অ্যাট্রিবিউট যোগ করা হয়েছে যাতে গুগল শিট সহজে ডাটা রিড করতে পারে -->
         <form id="dataForm" class="form-grid">
             <div class="form-group"><label>Sr. No. / Serial No.</label><input type="text" id="srNo" name="srNo" placeholder="--Select Serial No.--" required autocomplete="off"></div>
             <div class="form-group"><label>Buyer Name</label><input type="text" id="buyerName" name="buyerName" placeholder="--Select Buyer Name--" required autocomplete="off"></div>
@@ -146,8 +146,7 @@
 </div>
 
 <script>
-    // আপনার জেনারেট করা গুগল অ্যাপস স্ক্রিপ্ট ওয়েব ইউআরএল
-    const scriptURL = 'https://script.google.com/macros/s/AKfycby6K2YyEffBn3HYHIIb6F-bdaBpXdtIghb92LMYFrwuFG9DtzsYH3v_cfUMtxI52nM/exec';
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbysdpddcGAycf1b-KnqbG1ZC40mu4EC2jvDIp1J5Axo3xTYkY1YPRbciTSQuoYUPj9w/exec';
 
     function logout() {
         if(confirm("Are you sure you want to log out?")) {
@@ -229,7 +228,6 @@
     function saveAndGo() {
         const formElement = document.getElementById('dataForm');
         
-        // রিকোয়ার্ড (Required) ফিল্ডগুলো ফাঁকা থাকলে সাবমিট হবে না
         if (!formElement.checkValidity()) {
             formElement.reportValidity();
             return;
@@ -239,7 +237,7 @@
         if(!category) { alert("Please select a Category!"); return; }
 
         let ratioValues = [], qtyValues = [], totalRatio = 0, totalQty = 0;
-        let sizeDetails = {}; // গুগল শিটে আলাদা সাইজ দেখানোর জন্য অবজেক্ট
+        let sizeDetails = {};
 
         sizeGroups[category].forEach((sz, i) => {
             const r = parseInt(document.getElementById(`ratio_${i}`).value) || 0;
@@ -247,12 +245,10 @@
             ratioValues.push(r); qtyValues.push(q);
             totalRatio += r; totalQty += q;
             
-            // প্রতিটি সাইজের রেশিও এবং কোয়ান্টিটি তৈরি
             sizeDetails[`ratio_${sz}`] = r;
             sizeDetails[`qty_${sz}`] = q;
         });
 
-        // মূল এন্ট্রি অবজেক্ট (ভিউ পেজের জন্য লোকাল স্টোরেজেও থাকবে)
         const entryData = {
             srNo: document.getElementById('srNo').value,
             buyerName: document.getElementById('buyerName').value,
@@ -273,32 +269,30 @@
             category, sizesArray: sizeGroups[category], rValues: ratioValues, qValues: qtyValues, totalRatio, totalQty
         };
 
-        // গুগল শিটে পাঠানোর জন্য সমস্ত ডেটা একসাথে করা
         const googleSheetData = { ...entryData, ...sizeDetails };
 
-        // বাটন লক করা যাতে ডাবল সাবমিট না হয়
         const submitBtn = document.getElementById('submitBtn');
         const originalBtnText = submitBtn.innerText;
         submitBtn.disabled = true;
         submitBtn.innerText = "Saving to Google Sheet...";
 
-        // গুগল শিটে ডেটা আপলোড করা
+        // CORS ইস্যু এবং সাবমিশন এরর দূর করার জন্য 'mode: 'no-cors'' ব্যবহার করা হয়েছে
         fetch(scriptURL, {
             method: 'POST',
+            mode: 'no-cors', 
             body: JSON.stringify(googleSheetData),
             headers: { 'Content-Type': 'application/json' }
         })
-        .then(response => {
-            // গুগল শিটে সেভ হওয়ার পর আগের নিয়মে লোকাল স্টোরেজে সেভ / আপডেট হবে
+        .then(() => {
             let currentData = JSON.parse(localStorage.getItem('garmentsData')) || [];
 
             if(editIndex !== null) {
                 currentData[editIndex] = entryData;
                 localStorage.removeItem('editIndex');
-                alert("Data updated successfully in Google Sheet & Local Storage!");
+                alert("Data updated successfully!");
             } else {
                 currentData.push(entryData);
-                alert("New data saved successfully to Google Sheet & Local Storage!");
+                alert("New data saved successfully!");
             }
 
             localStorage.setItem('garmentsData', JSON.stringify(currentData));
@@ -306,7 +300,7 @@
         })
         .catch(error => {
             console.error('Error!', error.message);
-            alert("Failed to save data to Google Sheet. Please check connection.");
+            alert("Failed to save data. Please check network connection.");
         })
         .finally(() => {
             submitBtn.disabled = false;
